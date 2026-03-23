@@ -1,21 +1,19 @@
-document.getElementById("fileInput").addEventListener("change", function(e){
-	const file = e.target.files[0];
-	if (!file) return;
-	const reader = new FileReader();
-	
-	reader.onload = function(event){
-		console.log("파일 읽음");
-		const content = event.target.result;
-		record = ""
-		records = content
-		.split(/\r?\n/)
-		.map(line => line.trim())
-		.filter(line => line !=="");
-		draw_board()
-		draw_stone()
-	}
-	reader.readAsText(file);
-})
+fetch("record.txt")
+  .then(res => res.text())
+  .then(content => {
+    records = content
+      .split(/\r?\n/)
+      .map(line => line.trim())
+      .filter(line => line !== "");
+
+    record = ""; // 처음부터 시작하려면 유지
+
+    draw_board();
+    draw_stone();
+  })
+  .catch(err => {
+    console.error("파일 불러오기 실패:", err);
+  });
 
 
 canvas.addEventListener("click", function(e){
