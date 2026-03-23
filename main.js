@@ -1,4 +1,4 @@
-fetch("record.txt")
+fetch("renju.txt")
   .then(res => res.text())
   .then(content => {
     records = content
