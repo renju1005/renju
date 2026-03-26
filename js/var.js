@@ -16,6 +16,7 @@ canvas.height = l_b * (15 + 1) + 40
 
 let files = [];
 files.push("H09.txt");
+files.push("H09G07G08.txt");
 files.push("I09.txt");
 
 let record = "";
