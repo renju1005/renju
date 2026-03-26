@@ -15,8 +15,8 @@ canvas.width = l_b * (15 + 1) + 40
 canvas.height = l_b * (15 + 1) + 40
 
 let files = [];
-files.push("H9.txt");
-files.push("I9.txt");
+files.push("H09.txt");
+files.push("I09.txt");
 
 let record = "";
 let records = [];
