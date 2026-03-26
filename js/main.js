@@ -111,7 +111,7 @@ document.addEventListener("keydown", function(e){
 document.addEventListener("keydown", function(e){
 
 	if(e.key.toLowerCase() === "q"){
-		alert(files);
+		alert(text);
 	}
 })
 
