@@ -8,7 +8,8 @@ async function open_files(){
 		.map(line => line.trim())
 		.filter(line => line !== "");
 		records.push(...text);
-	
+		draw_board();
+		draw_stone();
 	}
 }
 

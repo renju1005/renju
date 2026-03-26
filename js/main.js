@@ -1,6 +1,6 @@
-open_files()
 draw_board();
 draw_stone();
+open_files()
 
 canvas.addEventListener("click", function(e){
 	let col = Math.round((e.clientX -rect.left - x_b - l_b)/l_b)
