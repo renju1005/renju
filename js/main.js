@@ -1,20 +1,6 @@
-fetch("txt/renju.txt")
-  .then(res => res.text())
-  .then(content => {
-    records = content
-      .split(/\r?\n/)
-      .map(line => line.trim())
-      .filter(line => line !== "");
-
-    record = ""; // 처음부터 시작하려면 유지
-
-    draw_board();
-    draw_stone();
-  })
-  .catch(err => {
-    console.error("파일 불러오기 실패:", err);
-  });
-
+open_files()
+draw_board();
+draw_stone();
 
 canvas.addEventListener("click", function(e){
 	let col = Math.round((e.clientX -rect.left - x_b - l_b)/l_b)
