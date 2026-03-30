@@ -48,7 +48,7 @@ document.addEventListener("keydown", function(e){
 		let blob = new Blob([records.join("\n")], { type: "text/plain" });
 		let a = document.createElement("a");
 		a.href = URL.createObjectURL(blob);
-		a.download = record + ".txt";
+		a.download = record.slice(3, 6) + ".txt";
 		a.click();
 		URL.revokeObjectURL(a.href);
 
@@ -117,3 +117,49 @@ document.addEventListener("keydown", function(e){
 
 draw_board()
 draw_stone()
+
+// 🔥 저장 함수
+async function saveFile() {
+  try {
+    // 저장할 내용 준비
+    const content = records.join("\n");
+
+    // 🔥 저장 위치 선택 창
+    const fileHandle = await window.showSaveFilePicker({
+      suggestedName: "record.txt",
+      types: [{
+        description: "Text Files",
+        accept: { "text/plain": [".txt"] }
+      }]
+    });
+
+    // 🔥 파일 쓰기
+    const writable = await fileHandle.createWritable();
+    await writable.write(content);
+    await writable.close();
+
+    console.log("저장 완료");
+
+  } catch (err) {
+    // 사용자가 취소했을 때도 여기로 옴
+    console.log("저장 취소 또는 에러:", err);
+  }
+}
+
+
+// 🔥 A키로 저장
+document.addEventListener("keydown", function(e) {
+
+  // 🔥 입력창에 타이핑 중이면 무시 (중요)
+  if (document.activeElement.tagName === "INPUT" ||
+      document.activeElement.tagName === "TEXTAREA") {
+    return;
+  }
+
+  // 🔥 A키
+  if (e.key === "a" || e.key === "A") {
+    e.preventDefault(); // 기본 동작 방지
+    saveFile();
+  }
+
+});
