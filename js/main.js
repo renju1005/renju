@@ -75,6 +75,9 @@ document.getElementById("fileInput").addEventListener("change", function(e){
 		.split(/\r?\n/)
 		.map(line => line.trim())
 		.filter(line => line !=="");
+		
+		records = [...new Set(records)];
+
 		draw_board()
 		draw_stone()
 	}
