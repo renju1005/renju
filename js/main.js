@@ -42,6 +42,19 @@ canvas.addEventListener("mousedown", function(e){
 	}
 })
 
+document.getElementById("undoButton").addEventListener("click",
+function(){
+
+		if(record.length > 0){
+		record = record.slice(0, -3)
+
+		draw_board()
+		draw_stone()
+		}
+
+});
+
+
 document.addEventListener("keydown", function(e){
 	if(e.key.toLowerCase() === "s"){
 
