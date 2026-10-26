@@ -179,3 +179,21 @@ document.addEventListener("keydown", function(e) {
   }
 
 });
+
+
+var patterns = document.querySelectorAll(".pattern");
+
+patterns.forEach(function(pattern)
+{
+
+	pattern.addEventListener("click",function()
+	{
+	var patternRecord=pattern.dataset.record;
+	alert(patternRecord);
+	record=patternRecord
+	draw_board();
+	draw_stone()
+	})
+
+});
+
