@@ -14,12 +14,20 @@ canvas.addEventListener("click", function(e){
 	move = (x_char + y_char)
 		if (!record.includes(move)){
 			if(edit === true || records.includes(record+move)){
-			record += move
+				record += move
+				draw();
 				if(!records.includes(record)){
 					records.push(record);
 					records.sort();
 				}
-				draw();
+			}
+			else{
+				if (records.includes(record+"XXX"))
+				{
+					XXX=move
+					record += "XXX"
+					draw();
+				}
 			}
 		}
 })
@@ -33,7 +41,12 @@ canvas.addEventListener("mousedown", function(e){
 	if(e.button === 2){
 		if(record.length > 0){
 		record = record.slice(0, -3)
-
+		
+		if (!record.includes("XXX"))
+		{
+			XXX=""
+		}
+		
 		draw();
 		}
 	}
@@ -44,6 +57,11 @@ function(){
 
 		if(record.length > 0){
 		record = record.slice(0, -3)
+
+		if (!record.includes("XXX"))
+		{
+			XXX=""
+		}
 
 		draw();
 		}

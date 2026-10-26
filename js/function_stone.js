@@ -34,4 +34,16 @@ function draw_stone(){
 			ctx.stroke();
 		}
 	})
+
+	if (XXX === ""){
+	
+	}
+	else{
+		ctx.fillStyle = "white"
+		ctx.beginPath()
+		ctx.arc(get_x(XXX), get_y(XXX), l_b * 0.5, 0, Math.PI * 2)
+		ctx.fill();
+		ctx.stroke();
+	}
+
 }

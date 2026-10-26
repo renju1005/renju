@@ -20,4 +20,6 @@ files.push("txt/H08.txt");
 let record = "";
 let records = [];
 
+let XXX = ""
+
 let edit = false
