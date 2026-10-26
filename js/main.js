@@ -181,3 +181,17 @@ patterns.forEach(function(pattern)
 
 });
 
+document.addEventListener("keydown", function(e){
+	if(e.key.toLowerCase() === "x"){
+		if (records.includes(record+"XXX")){
+			record += "XXX"
+			draw()
+		}
+	}
+})
+
+document.addEventListener("keydown", function(e){
+	if(e.key.toLowerCase() === "z"){
+		alert(record)
+	}
+})

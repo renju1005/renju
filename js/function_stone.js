@@ -31,7 +31,7 @@ function draw_stone(){
 			ctx.beginPath()
 			ctx.arc(get_x(next), get_y(next), l_b * 0.2, 0, Math.PI * 2)
 			ctx.fill();
-			ctx.stroke();	
+			ctx.stroke();
 		}
 	})
 }
