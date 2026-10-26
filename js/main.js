@@ -1,5 +1,4 @@
-draw_board();
-draw_stone();
+draw();
 open_files()
 
 canvas.addEventListener("click", function(e){
@@ -20,8 +19,7 @@ canvas.addEventListener("click", function(e){
 					records.push(record);
 					records.sort();
 				}
-				draw_board()
-				draw_stone()
+				draw();
 			}
 		}
 })
@@ -36,8 +34,7 @@ canvas.addEventListener("mousedown", function(e){
 		if(record.length > 0){
 		record = record.slice(0, -3)
 
-		draw_board()
-		draw_stone()
+		draw();
 		}
 	}
 })
@@ -48,8 +45,7 @@ function(){
 		if(record.length > 0){
 		record = record.slice(0, -3)
 
-		draw_board()
-		draw_stone()
+		draw();
 		}
 
 });
@@ -91,8 +87,7 @@ document.getElementById("fileInput").addEventListener("change", function(e){
 		
 		records = [...new Set(records)];
 
-		draw_board()
-		draw_stone()
+		draw();
 	}
 	reader.readAsText(file);
 })
@@ -111,8 +106,7 @@ document.addEventListener("keydown", function(e){
 		if(record.length > 0){
 		record = record.slice(0, -3)
 
-		draw_board()
-		draw_stone()
+		draw();
 		}
 	}
 })
@@ -124,15 +118,7 @@ document.addEventListener("keydown", function(e){
 	}
 })
 
-document.addEventListener("keydown", function(e){
-
-	if(e.key.toLowerCase() === "q"){
-		alert(text);
-	}
-})
-
-draw_board()
-draw_stone()
+draw();
 
 // 🔥 저장 함수
 async function saveFile() {
@@ -188,11 +174,9 @@ patterns.forEach(function(pattern)
 
 	pattern.addEventListener("click",function()
 	{
-	var patternRecord=pattern.dataset.record;
-	alert(patternRecord);
-	record=patternRecord
-	draw_board();
-	draw_stone()
+		var patternRecord=pattern.dataset.record;
+		record=patternRecord
+		draw();
 	})
 
 });

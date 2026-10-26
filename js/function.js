@@ -1,3 +1,9 @@
+function draw()
+{
+	draw_board();
+	draw_stone();
+}
+
 async function open_files(){
 	for (let file of files) {
 		const a = await fetch(file);
@@ -8,8 +14,7 @@ async function open_files(){
 		.map(line => line.trim())
 		.filter(line => line !== "");
 		records.push(...text);
-		draw_board();
-		draw_stone();
+		draw()
 	}
 }
 
